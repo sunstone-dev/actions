@@ -1,0 +1,30 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  username:
+    description: 'Username'
+    default: ''
+    required: true
+  apiKey:
+    description: 'API key (get from https://apps.sunstone.dev/account)'
+    default: ''
+    required: true
+  repositoryId:
+    description: 'Your private Sunstone repository ID'
+    default: ''
+    required: true
+  templatePath:
+    description: 'Path to your template (for example "deployments/my-deployment.yml")'
+    default: ''
+    required: true
+outputs:
+  status: # id of output
+    description: 'Update status'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.username }}
+    - ${{ inputs.apiKey }}
+    - ${{ inputs.repositoryId }}
+    - ${{ inputs.templatePath }}

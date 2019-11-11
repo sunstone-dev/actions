@@ -1,0 +1,10 @@
+FROM golang:1.13.4-alpine
+COPY . /go/src/github.com/sunstone-dev/actions
+WORKDIR /go/src/github.com/sunstone-dev/actions
+RUN apk add --no-cache git
+RUN cd cmd/sunstone-action && go install --ldflags="-s -w"
+
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+COPY --from=0 /go/bin/sunstone-action /sunstone-action
+ENTRYPOINT ["/sunstone-action"]
