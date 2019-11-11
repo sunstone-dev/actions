@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 )
@@ -75,6 +76,16 @@ func main() {
 	templateFile, err := ioutil.ReadFile(templatePath)
 	if err != nil {
 		fmt.Printf("failed to read template '%s' file, error: %s\n", templatePath, err)
+
+		files, err := ioutil.ReadDir("./")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		for _, f := range files {
+			fmt.Println(f.Name())
+		}
+
 		os.Exit(1)
 	}
 
