@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Sunstone Template Update'
+description: 'Sunstone template update action'
 inputs:
   username:
     description: 'Username'
