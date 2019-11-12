@@ -77,6 +77,7 @@ func main() {
 	if err != nil {
 		fmt.Printf("failed to read template '%s' file, error: %s\n", templatePath, err)
 
+		fmt.Println("files in the current dir:")
 		files, err := ioutil.ReadDir("./")
 		if err != nil {
 			log.Fatal(err)
