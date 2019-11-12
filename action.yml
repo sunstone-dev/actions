@@ -1,4 +1,5 @@
 name: 'Sunstone Template Update'
+icon: 'box'
 description: 'Sunstone template update action'
 inputs:
   username:
